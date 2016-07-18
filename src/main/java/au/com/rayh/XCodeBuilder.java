@@ -244,7 +244,6 @@ public class XCodeBuilder extends Builder implements SimpleBuildStep {
     @Override
     public void perform(@Nonnull Run<?, ?> build, @Nonnull FilePath projectRoot, @Nonnull Launcher launcher, @Nonnull TaskListener listener) throws InterruptedException, IOException {
         EnvVars envs = build.getEnvironment(listener);
-        listener.getLogger().println("######1#####");
 
 
         // check that the configured tools exist
@@ -781,7 +780,6 @@ public class XCodeBuilder extends Builder implements SimpleBuildStep {
     @Override
     public boolean perform(AbstractBuild build, Launcher launcher, BuildListener listener) throws InterruptedException, IOException {
         EnvVars envs = build.getEnvironment(listener);
-        listener.getLogger().println("######2#####");
         FilePath projectRoot = build.getWorkspace();
 
         // check that the configured tools exist
