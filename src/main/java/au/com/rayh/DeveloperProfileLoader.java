@@ -18,6 +18,7 @@ import hudson.util.ListBoxModel;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.DataBoundConstructor;
+import org.jenkinsci.remoting.RoleChecker;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -165,6 +166,11 @@ public class DeveloperProfileLoader extends Builder {
     private static final class GetHomeDirectory implements Callable<FilePath,IOException> {
         public FilePath call() throws IOException {
             return new FilePath(new File(System.getProperty("user.home")));
+        }
+
+        @Override
+        public void checkRoles(RoleChecker roleChecker) throws SecurityException {
+
         }
     }
 }
